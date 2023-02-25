@@ -1,0 +1,132 @@
+package variable1;
+import java.util.Scanner;
+public class AnimalWorld {
+	
+public static void main(String[]args) {
+	menuMain();	
+}
+ static String[] va=varieties();
+ static String[] ag=age();
+ static String[] ge=gender();
+/*public AnimalWorld(String name,String age,String gender) {
+	System.out.println("狗名"+name+"狗龄"+age+"狗性"+gender);
+	System.out.println("猫名"+name+"猫龄"+age+"猫性"+gender);
+	System.out.println("鼠名"+name+"鼠龄"+age+"鼠性"+gender);
+}
+*/
+static String[] varieties() {
+	String [] va =new String[10];
+	va[0]="狗";
+	va[1]="猫";
+	va[2]="鼠";
+	return va;
+}
+static String[]  age() {
+	String[] ag=new String[10];
+	ag[0]="3岁";
+	ag[1]="4岁";
+	ag[2]="5岁";
+	return ag;
+}
+static String[]  gender() {
+	String[] ge=new String[10];
+	ge[0]="雄";
+	ge[1]="雄";
+	ge[2]="雄";
+	return ge;
+}
+static void  showAnimals(String[] va,String[] ag,String[] ge) {
+	/*this.va=va;//在static 修饰的方法中不能用this函数。
+	this.ag=ag;
+	this.ge=ge;*/
+	System.out.println("品种\t\t年龄\t\t性别");
+	for(int i=0;i<=va.length;i++) {
+		if(va[i]==null) //试一下va[i].equals(null)
+			break;
+		System.out.println(va[i]+"\t\t"+ag[i]+"\t\t"+ge[i]);
+	}
+	
+}
+static void deleteAnimals(String[] va,String[] ag,String[] ge) {
+	Scanner input=new Scanner(System.in);
+	System.out.println("请输入您要删除的动物品种：");
+	String va1=input.next();
+	int count=0;
+	for(int i=0;i<=va.length;i++) {
+		if(va[i].equals(va1)) 
+			break;
+		count++;
+	}
+	va[count]="无";ag[count]="无";ge[count]="无";
+	System.out.println("此动物品种已被删除");
+	for(int i=0;i<=va.length;i++) {
+		if(va[i]==null) //试一下va[i].equals(null)
+			break;
+		System.out.println(va[i]+"\t\t"+ag[i]+"\t\t"+ge[i]);
+	}
+}
+static void  addAnimals(String[] va,String[] ag,String[] ge) {
+	Scanner input=new Scanner(System.in);
+	int count=0;
+	for(int i=0;i<=va.length;i++) {
+		if(va[i]==null) //试一下va[i].equals(null)
+			break;
+		count++;
+	}
+	System.out.println("请输入您想要添加的动物品种：");
+	va[count]=input.next();
+	System.out.println("请输入您想要添加的动物年龄：");
+	ag[count]=input.next();
+	System.out.println("请输入您想要添加的动物性别：");
+	ge[count]=input.next();
+	System.out.println("此动物品种已被添加");
+	for(int i=0;i<=va.length;i++) {
+		if(va[i]==null) //试一下va[i].equals(null)
+			break;
+		System.out.println(va[i]+"\t\t"+ag[i]+"\t\t"+ge[i]);
+	}
+}
+static void reviseAnimals(String[] va,String[] ag,String[] ge) {
+	Scanner input=new Scanner(System.in);
+	System.out.println("请输入您要修改的动物品种：");
+	String va1=input.next();
+	int count=0;
+	for(int i=0;i<=va.length;i++) {
+		if(va[i].equals(va1)) 
+			break;
+		count++;
+	}
+	System.out.println("请输入您想要修改后的动物品种：");
+	va[count]=input.next();
+	System.out.println("请输入您想要修改后的动物年龄：");
+	ag[count]=input.next();
+	System.out.println("请输入您想要修改后的动物性别：");
+	ge[count]=input.next();
+	System.out.println("此动物品种已被修改");
+	for(int i=0;i<=va.length;i++) {
+		if(va[i]==null) //试一下va[i].equals(null)
+			break;
+		System.out.println(va[i]+"\t\t"+ag[i]+"\t\t"+ge[i]);
+	}
+}
+static void  menuMain() {
+	Scanner input =new Scanner(System.in);
+	 System.out.println("欢迎来到动物世界！！!");
+		
+	 System.out.println("菜单一：查看品种");
+	 System.out.println("菜单二：删除品种");
+	 System.out.println("菜单三：增加品种");
+	 System.out.println("菜单四：修改品种");
+	 System.out.println("请输入您的选择：");
+		String yourOption=input.next();
+	 if(yourOption.equals("菜单一")) {
+		showAnimals(va,ag,ge);
+	 }else if(yourOption.equals("菜单二")) {
+		 deleteAnimals(va,ag,ge);
+	 }else if(yourOption.equals("菜单三")) {
+		 addAnimals(va,ag,ge);
+	 }else if(yourOption.equals("菜单四")) {
+		 reviseAnimals(va,ag,ge);
+	 }	
+}
+}
