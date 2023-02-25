@@ -1,0 +1,27 @@
+package variable1;
+/*成员变量可以在任意方法中调用
+ * 局部变量只能在它的方法内被调用
+ * 在方法中，如果他的局部变量和成员变量名相同，可以用this.成员变量名调用成员变量。
+ */
+public class Dog {
+//成员变量
+String name,age,gender;
+
+public static void main(String[]args) {
+	//创建对象，给构造方法public Dog()中的局部变量(String name,String age,String gender)赋值
+	Dog dog1=new  Dog("dog1","3岁","雄");
+	Dog dog2=new Dog("dog2","4岁","雌");
+	/*dog1.name  dog1.age  dog1.gender
+	 * 调用成员变量
+	 */
+	//System.out.println("编号1的身份特征为："+"姓名："+dog1.name+"年龄："+dog1.age+"性别："+dog1.gender);
+}
+public Dog(String name,String age,String gender ){
+	//用局部变量给成员变量赋值
+	this.name=name;
+	this.age=age;
+	this.gender=gender;
+	
+	//System.out.println("编号1的身份特征为："+"姓名："+name+"年龄："+age+"性别："+gender);
+}
+}
