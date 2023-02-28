@@ -1,0 +1,12 @@
+package sort1;
+public class sort4 {
+public static void main(String[]args) {
+	int a=show(27);
+	int num5=a+2;
+	System.out.println(num5);
+}
+ static int show(int num) {
+	int num4=10+2+2+num;
+return num4;
+}
+}
